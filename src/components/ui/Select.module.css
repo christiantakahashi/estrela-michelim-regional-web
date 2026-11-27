@@ -1,0 +1,35 @@
+/* Design system: .emr-select, .emr-select__label */
+.root {
+  display: grid;
+  gap: var(--space-1);
+  font-family: var(--font-sans);
+}
+
+.label {
+  font: 700 11px/16px var(--font-sans);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--accent-text);
+}
+
+.field {
+  appearance: none;
+  min-height: 40px;
+  min-width: 200px;
+  padding: var(--space-2) var(--space-8) var(--space-2) var(--space-3);
+  border: 1px solid var(--border-strong);
+  border-radius: var(--radius-md);
+  background-color: var(--surface);
+  color: var(--ink);
+  font: 400 15px/22px var(--font-sans);
+  background-image: linear-gradient(45deg, rgba(0, 0, 0, 0) 50%, var(--ink-muted) 50%),
+    linear-gradient(135deg, var(--ink-muted) 50%, rgba(0, 0, 0, 0) 50%);
+  background-position: calc(100% - 17px) 17px, calc(100% - 12px) 17px;
+  background-size: 5px 5px;
+  background-repeat: no-repeat;
+}
+
+.field:focus-visible {
+  outline: 2px solid var(--ink);
+  outline-offset: 2px;
+}

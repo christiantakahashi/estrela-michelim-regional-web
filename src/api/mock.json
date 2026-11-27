@@ -1,0 +1,77 @@
+{
+  "search_options": {
+    "cities": [
+      { "id": 1, "name": "Maringá", "state": "PR" },
+      { "id": 2, "name": "Londrina", "state": "PR" },
+      { "id": 3, "name": "Curitiba", "state": "PR" }
+    ],
+    "tags": {
+      "cuisine": [
+        { "id": 1, "name": "Italiana" },
+        { "id": 2, "name": "Japonesa" },
+        { "id": 3, "name": "Brasileira" },
+        { "id": 4, "name": "Árabe" },
+        { "id": 5, "name": "Vegetariana" }
+      ],
+      "occasion": [
+        { "id": 10, "name": "Jantar romântico" },
+        { "id": 11, "name": "Com a família" },
+        { "id": 12, "name": "Almoço de negócios" },
+        { "id": 13, "name": "Comemoração" }
+      ],
+      "vibe": [
+        { "id": 20, "name": "Aconchegante" },
+        { "id": 21, "name": "Animado" },
+        { "id": 22, "name": "Tranquilo" },
+        { "id": 23, "name": "Elegante" }
+      ],
+      "amenity": [
+        { "id": 30, "name": "Estacionamento" },
+        { "id": 31, "name": "Acessível" },
+        { "id": 32, "name": "Aceita reserva" },
+        { "id": 33, "name": "Área externa" }
+      ]
+    },
+    "price_ranges": [1, 2, 3, 4],
+    "min_ratings": [3.0, 3.5, 4.0, 4.5]
+  },
+  "search": {
+    "ordering": "compatibility",
+    "results": [
+      {
+        "id": 14,
+        "name": "Cantina da Nonna",
+        "city": "Maringá",
+        "neighborhood": "Zona 7",
+        "price_range": 2,
+        "average_rating": 4.6,
+        "compatibility": 86,
+        "matched_tags": ["Italiana", "Jantar romântico", "Aconchegante"],
+        "is_new": true
+      },
+      {
+        "id": 7,
+        "name": "Casa Tulipa",
+        "city": "Maringá",
+        "neighborhood": "Centro",
+        "price_range": 3,
+        "average_rating": 4.4,
+        "compatibility": 74,
+        "matched_tags": ["Jantar romântico", "Aconchegante"],
+        "is_new": false
+      },
+      {
+        "id": 22,
+        "name": "Mesa do Porto",
+        "city": "Maringá",
+        "neighborhood": "Zona 5",
+        "price_range": 3,
+        "average_rating": 4.2,
+        "compatibility": 58,
+        "matched_tags": ["Aconchegante"],
+        "is_new": false
+      }
+    ],
+    "suggestion": null
+  }
+}
