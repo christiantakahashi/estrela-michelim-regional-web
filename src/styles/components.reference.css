@@ -1,0 +1,37 @@
+/* Estrela Michelin Regional - componentes. Depende de tokens.css. */
+.emr-btn{display:inline-flex;align-items:center;justify-content:center;gap:var(--space-2);min-height:40px;padding:var(--space-2) var(--space-4);border:1px solid var(--accent);border-radius:var(--radius-md);background:var(--accent);color:var(--on-accent);font:600 15px/22px var(--font-sans);cursor:pointer}
+.emr-btn:hover{filter:brightness(.94)}
+.emr-btn:focus-visible,.emr-chip:focus-visible,.emr-select select:focus-visible,.emr-card a:focus-visible{outline:2px solid var(--ink);outline-offset:2px}
+.emr-btn--secondary{background:var(--surface);color:var(--ink);border-color:var(--border-strong)}
+.emr-btn--ghost{background:none;color:var(--accent-text);border-color:rgba(0,0,0,0);padding-inline:var(--space-2)}
+.emr-btn:disabled{opacity:.5;cursor:not-allowed;filter:none}
+
+.emr-select{display:grid;gap:var(--space-1);font-family:var(--font-sans)}
+.emr-select__label{font:700 11px/16px var(--font-sans);letter-spacing:.12em;text-transform:uppercase;color:var(--accent-text)}
+.emr-select select{appearance:none;min-height:40px;min-width:200px;padding:var(--space-2) var(--space-8) var(--space-2) var(--space-3);border:1px solid var(--border-strong);border-radius:var(--radius-md);background-color:var(--surface);color:var(--ink);font:400 15px/22px var(--font-sans);background-image:linear-gradient(45deg,rgba(0,0,0,0) 50%,var(--ink-muted) 50%),linear-gradient(135deg,var(--ink-muted) 50%,rgba(0,0,0,0) 50%);background-position:calc(100% - 17px) 17px,calc(100% - 12px) 17px;background-size:5px 5px;background-repeat:no-repeat}
+
+.emr-chip{display:inline-flex;align-items:center;min-height:32px;padding:var(--space-1) var(--space-3);border:1px solid var(--border-strong);border-radius:var(--radius-pill);background:var(--surface);color:var(--ink);font:400 13px/18px var(--font-sans);cursor:pointer}
+.emr-chip[aria-pressed="true"]{background:var(--accent);border-color:var(--accent);color:var(--on-accent);font-weight:600}
+.emr-chip-group{display:flex;flex-wrap:wrap;gap:var(--space-2)}
+
+.emr-badge{display:inline-flex;align-items:center;padding:2px var(--space-2);border-radius:var(--radius-sm);background:var(--surface-sunken);color:var(--ink-muted);font:600 13px/18px var(--font-sans)}
+.emr-badge--match{background:var(--success-soft);color:var(--success)}
+.emr-badge--new{background:var(--accent-soft);color:var(--accent-text)}
+
+.emr-rating{display:inline-flex;align-items:center;gap:var(--space-1);color:var(--ink);font:600 15px/22px var(--font-sans)}
+.emr-rating svg{width:16px;height:16px;fill:var(--star)}
+.emr-rating svg[data-empty]{fill:var(--border)}
+
+.emr-card{display:grid;gap:var(--space-2);padding:var(--space-4);border:1px solid var(--border);border-radius:var(--radius-md);background:var(--surface);color:var(--ink);font:400 15px/22px var(--font-sans)}
+.emr-card__top{display:flex;justify-content:space-between;align-items:flex-start;gap:var(--space-4)}
+.emr-card__name{margin:0;font:700 20px/26px var(--font-display)}
+.emr-card__name a{color:inherit;text-decoration:none}
+.emr-card__name a:hover{text-decoration:underline}
+.emr-card__match{text-align:right;color:var(--accent-text);font:700 20px/26px var(--font-display);white-space:nowrap}
+.emr-card__match small{display:block;font:400 13px/18px var(--font-sans);color:var(--ink-muted)}
+.emr-card__meta{display:flex;flex-wrap:wrap;align-items:center;gap:var(--space-2) var(--space-3);color:var(--ink-muted)}
+.emr-card__tags{display:flex;flex-wrap:wrap;gap:var(--space-2);padding-top:var(--space-2);border-top:1px solid var(--border)}
+
+.emr-empty{display:grid;justify-items:center;gap:var(--space-3);padding:var(--space-8) var(--space-6);border:1px dashed var(--border-strong);border-radius:var(--radius-md);background:var(--surface-sunken);color:var(--ink);text-align:center;font:400 15px/22px var(--font-sans)}
+.emr-empty__title{margin:0;font:700 20px/26px var(--font-display)}
+.emr-empty__text{margin:0;max-width:44ch;color:var(--ink-muted)}

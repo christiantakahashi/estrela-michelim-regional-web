@@ -1,0 +1,18 @@
+/* Design system: .emr-rating */
+.root {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-1);
+  color: var(--ink);
+  font: 600 15px/22px var(--font-sans);
+}
+
+.root svg {
+  width: 16px;
+  height: 16px;
+  fill: var(--star);
+}
+
+.root svg[data-empty] {
+  fill: var(--border);
+}

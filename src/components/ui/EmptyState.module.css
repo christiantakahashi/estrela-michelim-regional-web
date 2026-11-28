@@ -1,0 +1,24 @@
+/* Design system: .emr-empty */
+.root {
+  display: grid;
+  justify-items: center;
+  gap: var(--space-3);
+  padding: var(--space-8) var(--space-6);
+  border: 1px dashed var(--border-strong);
+  border-radius: var(--radius-md);
+  background: var(--surface-sunken);
+  color: var(--ink);
+  text-align: center;
+  font: 400 15px/22px var(--font-sans);
+}
+
+.title {
+  margin: 0;
+  font: 700 20px/26px var(--font-display);
+}
+
+.text {
+  margin: 0;
+  max-width: 44ch;
+  color: var(--ink-muted);
+}
