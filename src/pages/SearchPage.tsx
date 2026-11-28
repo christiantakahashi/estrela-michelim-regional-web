@@ -10,6 +10,7 @@ import {
 import { SearchFilters } from '../components/SearchFilters';
 import { EmptyState } from '../components/ui';
 import styles from './SearchPage.module.css';
+import { ResultList } from '../components/ResultList';
 
 export function SearchPage() {
   const [options, setOptions] = useState<SearchOptionsResponse | null>(null);
@@ -133,16 +134,17 @@ export function SearchPage() {
         />
       )}
 
-      {/* Área de integração com os resultados (ResultList do João Pedro) */}
+      {/* Área de integração com os resultados */}
       {hasSearched && searchResult && !searchError && (
         <section className={styles.resultsSection} aria-live="polite">
-          {/* Substitua o bloco temporário abaixo pelo componente ResultList:
-            <ResultList
-              data={searchResult}
-              isLoading={isSearching}
-              onRemoveSuggestion={handleRemoveSuggestedFilter}
-            />
-          */}
+          {hasSearched && searchResult && !searchError && (
+            <section className={styles.resultsSection} aria-live="polite">
+              <ResultList
+                ordering={searchResult.ordering}
+                results={searchResult.results}
+              />
+            </section>
+          )}
           <p className={styles.statusText}>
             Ordenação: <strong>{searchResult.ordering}</strong> —{' '}
             {searchResult.results.length} restaurante(s) encontrado(s).
