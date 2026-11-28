@@ -1,101 +1,55 @@
-/* Tipos do contrato da API — UC-C04 Buscar restaurantes por contexto. */
-
-export type TagCategory = 'cuisine' | 'occasion' | 'vibe' | 'amenity'
-
-export type CityOption = {
-  id: number
-  name: string
-  state: string
+export interface FilterOption {
+  id: number;
+  name: string;
 }
 
-export type TagOption = {
-  id: number
-  name: string
+export interface SearchOptionsResponse {
+  cities: FilterOption[];
+  occasions: FilterOption[];
+  vibes: FilterOption[];
+  cuisines: FilterOption[];
+  amenities: FilterOption[];
 }
 
-/** GET /api/v1/search_options */
-export type SearchOptions = {
-  cities: CityOption[]
-  tags: Record<TagCategory, TagOption[]>
-  price_ranges: number[]
-  min_ratings: number[]
+export interface SearchFilters {
+  city_id?: number | null;
+  occasions?: number[];
+  vibes?: number[];
+  cuisines?: number[];
+  amenities?: number[];
+  price_range?: number | null;
+  min_rating?: number | null;
 }
 
-/** Critérios da busca. Todos opcionais (RN-C01). */
-export type SearchCriteria = {
-  city_id: number | null
-  cuisines: number[]
-  occasions: number[]
-  vibes: number[]
-  price_ranges: number[]
-  min_rating: number | null
-  amenities: number[]
+export interface RestaurantResult {
+  id: number;
+  name: string;
+  city: string;
+  neighborhood: string;
+  price_range: number;
+  average_rating: number;
+  compatibility: number | null;
+  matched_tags: string[];
+  is_new: boolean;
 }
 
-/** Chave de um critério, como a API a devolve na sugestão do fluxo 5c. */
-export type CriterionKey = keyof SearchCriteria
-
-export type RestaurantResult = {
-  id: number
-  name: string
-  city: string
-  neighborhood: string
-  price_range: number
-  average_rating: number
-  /** Nulo quando a busca não tem ocasião nem vibe (fluxo 1a). */
-  compatibility: number | null
-  matched_tags: string[]
-  is_new: boolean
+export interface SearchSuggestion {
+  remove: string;
+  would_return: number;
 }
 
-export type Ordering = 'compatibility' | 'rating'
-
-/** Fluxo 5c: critério a remover e quantos restaurantes ele devolveria. */
-export type SearchSuggestion = {
-  remove: CriterionKey
-  would_return: number
+export interface SearchResponse {
+  ordering: 'compatibility' | 'rating';
+  results: RestaurantResult[];
+  suggestion: SearchSuggestion | null;
 }
 
-/** GET /api/v1/restaurants/search */
-export type SearchResponse = {
-  ordering: Ordering
-  results: RestaurantResult[]
-  suggestion: SearchSuggestion | null
+export interface ApiValidationError {
+  error: string;
+  fields: string[];
 }
 
-/** Corpo da resposta 422. */
-export type InvalidParams = {
-  error: 'invalid_params'
-  fields: string[]
-}
-
-export const EMPTY_CRITERIA: SearchCriteria = {
-  city_id: null,
-  cuisines: [],
-  occasions: [],
-  vibes: [],
-  price_ranges: [],
-  min_rating: null,
-  amenities: [],
-}
-
-/** Rótulos dos critérios, para a mensagem do fluxo 5c. */
-export const CRITERION_LABELS: Record<CriterionKey, string> = {
-  city_id: 'cidade',
-  cuisines: 'culinária',
-  occasions: 'ocasião',
-  vibes: 'vibe',
-  price_ranges: 'preço',
-  min_rating: 'nota mínima',
-  amenities: 'comodidades',
-}
-
-/** Preço em cifrões, de $ a $$$$. */
-export function formatPriceRange(range: number): string {
-  return '$'.repeat(Math.min(Math.max(range, 1), 4))
-}
-
-/** Nota com uma casa decimal e vírgula, como na documentação: 4,6. */
+/** Formata a nota numérica (ex: 4.6 -> "4,6") para o componente Rating. */
 export function formatRating(value: number): string {
-  return value.toFixed(1).replace('.', ',')
+  return value.toFixed(1).replace('.', ',');
 }
